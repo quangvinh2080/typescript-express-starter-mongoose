@@ -194,6 +194,47 @@ EOM
 
     exit 0
     ;;
+  delete-route)
+    cat <<EOM
+Enter the name of the route you want to delete (singular form), e.g: user
+EOM
+    read filename
+    if [ -f "$PWD/src/routes/${filename}s.route.ts" ]; then
+      rm "$PWD/src/routes/${filename}s.route.ts"
+    fi
+
+    if [ -f "$PWD/src/controllers/${filename}s.controller.ts" ]; then
+      rm "$PWD/src/controllers/${filename}s.controller.ts"
+    fi
+
+    if [ -f "$PWD/src/dtos/${filename}s.dto.ts" ]; then
+      rm "$PWD/src/dtos/${filename}s.dto.ts"
+    fi
+
+    if [ -f "$PWD/src/http/${filename}s.http" ]; then
+      rm "$PWD/src/http/${filename}s.http"
+    fi
+
+    if [ -f "$PWD/src/interfaces/${filename}s.interface.ts" ]; then
+      rm "$PWD/src/interfaces/${filename}s.interface.ts"
+    fi
+
+    if [ -f "$PWD/src/models/${filename}s.model.ts" ]; then
+      rm "$PWD/src/models/${filename}s.model.ts"
+    fi
+
+    if [ -f "$PWD/src/services/${filename}s.service.ts" ]; then
+      rm "$PWD/src/services/${filename}s.service.ts"
+    fi
+
+    if [ -f "$PWD/src/tests/${filename}s.test.ts" ]; then
+      rm "$PWD/src/tests/${filename}s.test.ts"
+    fi
+
+    echo "Route deleted. You will need to go to src/server.ts and delete unused routes there"
+
+    exit 0
+    ;;
   *)
     printf "Invalid argument: $1\n"
     display_help_message
