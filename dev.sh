@@ -192,6 +192,8 @@ EOM
     create_http $filename $classname $localVarname
     create_dto $filename $classname $localVarname
 
+    echo "Finally, let's open src/server.js and import your new route"
+
     exit 0
     ;;
   delete-route)
