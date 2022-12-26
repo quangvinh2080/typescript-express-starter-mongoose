@@ -1,0 +1,32 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Find All Samples
+GET {{ baseURL }}/samples
+
+###
+# Find Sample By Id
+GET {{ baseURL }}/samples/1
+
+###
+# Create Sample
+POST {{ baseURL }}/samples
+Content-Type: application/json
+
+{
+    "sample": "sample",
+}
+
+###
+# Modify Sample By Id
+PUT {{ baseURL }}/samples/1
+Content-Type: application/json
+
+{
+    "sample": "sample",
+}
+
+###
+# Delete Sample By Id
+DELETE {{ baseURL }}/samples/1
